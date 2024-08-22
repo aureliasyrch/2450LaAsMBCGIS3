@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Museum di Bandung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn1.katadata.co.id/media/images/temp/2020/04/18/2020_04_18-20_12_17_b963f1f3b83e3ac6e3103c4c0e66ad0e.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f4f4f4;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        header {
+            background: #003366;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        table {
+            width: 90%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        td {
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+            transition: background-color 0.3s ease;
+        }
+
+        td:hover {
+            font-weight: bold;
+            color: #003366;
+            cursor: pointer;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background: #003366;
+            color: white;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background-color: #003366;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Daftar Museum di Bandung</h1>
+        <div class="logo">
+            <img src="https://img.bandung.go.id/images/prpage/2021/10/15/header/1639659211100-lambang-dan-bendera-desktop.png" alt="Logo Kota Bandung">
+        </div>
+    </header>
+
+    <table id="museumTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama Museum</th>
+                <th>Alamat</th>
+                <th>Tahun</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="showModal('museum1')">
+                <td>1</td>
+                <td>MUSEUM BARLI</td>
+                <td>JL. PROF. DR. SUTAMI NO. 91</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum2')"> 
+                <td>2</td>
+                <td>MUSEUM KEBUDAYAAN TIONGHOA</td>
+                <td>JL. NANA ROHANA NO. 37</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum3')">
+                <td>3</td>
+                <td>MUSEUM 3D</td>
+                <td>JL. DR. SETIABUDI</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum4')">
+                <td>4</td>
+                <td>MUSEUM PREANGER</td>
+                <td>JL. ASIA AFRIKA NO. 81</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum5')">
+                <td>5</td>
+                <td>MUSEUM KOTA BANDUNG</td>
+                <td>JL. ACEH NO. 47</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum6')">
+                <td>6</td>
+                <td>MUSEUM MANDALA WANGSIT SILIWANGI</td>
+                <td>JL. LEMBONG NO. 39</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum7')">
+                <td>7</td>
+                <td>MUSEUM SRI BADUGA</td>
+                <td>JL. BKR NO. 185</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum8')">
+                <td>8</td>
+                <td>MUSEUM GEOLOGI BANDUNG</td>
+                <td>JL. DIPONEGORO NO. 57</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum9')">
+                <td>9</td>
+                <td>MUSEUM GEDUNG SATE</td>
+                <td>JL. DIPONEGORO NO. 22</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum10')">
+                <td>10</td>
+                <td>MUSEUM KONFERENSI ASIA AFRIKA</td>
+                <td>JL. ASIA AFRIKA NO. 65</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum11')">
+                <td>11</td>
+                <td>MUSEUM POS INDONESIA</td>
+                <td>JL. CILAKI NO. 73</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum12')">
+                <td>12</td>
+                <td>MUSEUM LAPAS BANCEUY</td>
+                <td>JL. BANCEUY</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum13')">
+                <td>13</td>
+                <td>MUSEUM MAINAN</td>
+                <td>JL. SUNDA NO. 39</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum14')">
+                <td>14</td>
+                <td>MUSEUM VIRAJATI SESKOAD</td>
+                <td>JL. GATOT SUBROTO NO. 96</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum15')">
+                <td>15</td>
+                <td>MUSEUM NIKE ARDILLA</td>
+                <td>KOMP. ARYA GRAHA. JL. ARIA UTAMA NO. 5</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum16')">
+                <td>16</td>
+                <td>HALL OF FAME JAWA BARAT - PANGGUNG INOHONG</td>
+                <td>BAPUSIPDA</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum17')">
+                <td>17</td>
+                <td>MUSEUM PENDIDIKAN NASIONAL</td>
+                <td>JL. DR.SETIABUDI NO. 225</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum18')">
+                <td>18</td>
+                <td>GEDUNG INDONESIA MENGGUGAT</td>
+                <td>JL. PERINTIS KEMERDEKAAN NO. 5</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum19')">
+                <td>19</td>
+                <td>MUSEUM PERJUANGAN RAKYAT JAWA BARAT</td>
+                <td>JL. DIPATIUKUR NO. 48</td>
+                <td>2021</td>
+            </tr>
+            <tr onclick="showModal('museum20')">
+                <td>20</td>
+                <td>NUART SCULPTURE PARK</td>
+                <td>SETARA DUTA RAYA NO.L6, CIWARUGA, BANDUNG</td>
+                <td>2024</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div id="museumModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="museumTitle"></h2>
+            <p id="museumAddress"></p>
+            <p id="museumHistory"></p>
+            <p id="museumCollection"></p>
+            <p id="museumUnique"></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Daftar Museum Bandung. All rights reserved.
+    </div>
+
+    <script>
+        const museumDetails = {
+            museum1: {
+                title: "Museum Barli",
+                address: "Jl. Prof. Dr. Sutami No. 91",
+                history: "Didirikan untuk menghormati seniman besar Barli Sasmitawinata, museum ini menampilkan perjalanan seni sang maestro dari masa ke masa",
+                collection: "Lukisan dan karya seni Barli serta koleksi dari seniman lain yang sejalan dengan gaya Barli",
+                unique: "Museum ini juga menyelenggarakan berbagai workshop seni yang bisa diikuti oleh pengunjung"
+            },
+            museum2: {
+                title: "Museum Kebudayaan Tionghoa",
+                address: "Jl. Nana Rohana No. 37",
+                history: "Museum ini didirikan untuk melestarikan dan memperkenalkan kebudayaan Tionghoa di Indonesia, khususnya di Bandung",
+                collection: "Artefak budaya, pakaian tradisional, dan barang-barang antik dari komunitas Tionghoa di Indonesia",
+                unique: "Menawarkan pameran yang interaktif dan acara budaya yang diadakan secara rutin"
+            },
+            museum3: {
+                title: "Museum 3D",
+                address: "Jl. Dr. Setiabudi",
+                history: "Sebuah museum seni kontemporer yang fokus pada ilusi optik dan seni tiga dimensi",
+                collection: "Lukisan 3D dan instalasi seni yang memungkinkan pengunjung untuk berinteraksi dan berfoto dengan karya seni",
+                unique: "Pengunjung bisa berpose dengan lukisan yang terlihat hidup dan seolah-olah menjadi bagian dari karya tersebut"
+            },
+            museum4: {
+                title: "Museum Preanger",
+                address: "Jl. Asia Afrika No. 81",
+                history: "Terletak di salah satu gedung bersejarah di Bandung, museum ini menampilkan sejarah dan budaya Jawa Barat",
+                collection: "Artefak sejarah dari masa kolonial hingga kemerdekaan, termasuk foto-foto bersejarah dan benda budaya",
+                unique: "Memiliki dokumentasi lengkap dari peristiwa-peristiwa penting di Jawa Barat"
+            },
+            museum5: {
+                title: "Museum Kota Bandung",
+                address: "Jl. Aceh No. 47",
+                history: "Museum ini didirikan untuk menyimpan dan memamerkan sejarah kota Bandung sejak masa prasejarah hingga masa modern",
+                collection: "Foto-foto lama, peta, dan dokumen yang mencatat perkembangan kota Bandung",
+                unique: "Pameran digital interaktif yang memungkinkan pengunjung untuk melihat perkembangan Bandung dari masa ke masa"
+            },
+            museum6: {
+                title: "Museum Mandala Wangsit Siliwangi",
+                address: "Jl. Lembong No. 39",
+                history: "Didirikan untuk mengenang perjuangan Tentara Siliwangi dalam mempertahankan kemerdekaan Indonesia",
+                collection: "Senjata, seragam, dan memorabilia militer dari masa perjuangan",
+                unique: "Memiliki koleksi unik berupa senjata tradisional yang digunakan dalam perang kemerdekaan"
+            },
+            museum7: {
+                title: "Museum Sri Baduga",
+                address: "Jl. BKR No. 185",
+                history: "Museum ini menyimpan berbagai artefak sejarah dan budaya Jawa Barat",
+                collection: "Koleksi etnografi, geologi, dan sejarah alam Jawa Barat",
+                unique: "Menampilkan replika rumah tradisional Sunda dan berbagai artefak dari kerajaan-kerajaan di Jawa Barat"
+            },
+            museum8: {
+                title: "Museum Geologi Bandung",
+                address: "Jl. Diponegoro No. 57",
+                history: "Didirikan pada masa kolonial, museum ini awalnya bertujuan untuk memamerkan hasil-hasil eksplorasi geologi di Hindia Belanda",
+                collection: "Fosil, mineral, dan batuan dari berbagai daerah di Indonesia",
+                unique: "Memiliki replika dinosaurus dan koleksi batuan meteorit"
+            },
+            museum9: {
+                title: "Museum Gedung Sate",
+                address: "Jl. Diponegoro No. 22",
+                history: "Terletak di Gedung Sate, ikon Kota Bandung, museum ini menampilkan sejarah dan arsitektur gedung yang dikenal dengan tusuk satenya",
+                collection: "Dokumentasi pembangunan Gedung Sate dan artefak terkait sejarah Jawa Barat",
+                unique: "Menyediakan pengalaman virtual reality tentang pembangunan Gedung Sate"
+            },
+            museum10: {
+                title: "Museum Konferensi Asia Afrika",
+                address: "Jl. Asia Afrika No. 65",
+                history: "Museum ini didirikan untuk memperingati Konferensi Asia Afrika tahun 1955 yang menjadi tonggak penting dalam sejarah dunia",
+                collection: "Dokumen, foto, dan artefak dari Konferensi Asia Afrika",
+                unique: "Menampilkan rekaman asli dan dokumentasi konferensi yang dihadiri oleh para pemimpin dunia"
+            },
+            museum11: {
+                title: "Museum Pos Indonesia",
+                address: "Jl. Cilaki No. 73",
+                history: "Museum ini didirikan oleh PT Pos Indonesia untuk memamerkan sejarah pos dan komunikasi di Indonesia",
+                collection: "Prangko, alat komunikasi, dan dokumen pos dari masa ke masa",
+                unique: "Memiliki koleksi prangko langka dari berbagai negara"
+            },
+            museum12: {
+                title: "Museum Lapas Banceuy",
+                address: "Jl. Banceuy",
+                history: "Museum ini terletak di dalam kompleks Lapas Banceuy, tempat Bung Karno pernah ditahan",
+                collection: "Barang-barang pribadi Bung Karno selama di penjara, serta dokumen sejarah terkait perjuangan kemerdekaan",
+                unique: "Menyajikan suasana asli sel tahanan Bung Karno"
+            },
+            museum13: {
+                title: "Museum Mainan",
+                address: "Jl. Sunda No. 39",
+                history: "Didirikan untuk mengenang masa kecil melalui koleksi mainan dari berbagai era",
+                collection: "Mainan-mainan klasik dari berbagai negara dan era",
+                unique: "Menyediakan area bermain interaktif untuk anak-anak"
+            },
+            museum14: {
+                title: "Museum Virajati Seskoad",
+                address: "Jl. Gatot Subroto No. 96",
+                history: "Museum ini didirikan untuk memamerkan sejarah militer di Indonesia, khususnya terkait dengan Seskoad (Sekolah Staf dan Komando Angkatan Darat)",
+                collection: "Seragam, medali, dan dokumen-dokumen militer",
+                unique: "Menampilkan simulasi strategi militer"
+            },
+            museum15: {
+                title: "Museum Nike Ardilla",
+                address: "Komp. Arya Graha, Jl. Aria Utama No. 5",
+                history: "Didedikasikan untuk mengenang penyanyi legendaris Nike Ardilla yang meninggal pada usia muda",
+                collection: "Pakaian, penghargaan, dan memorabilia pribadi Nike Ardilla",
+                unique: "Menyimpan koleksi lengkap dari perjalanan karir Nike Ardilla, termasuk video klip dan foto-foto pribadinya"
+            },
+            museum16: {
+                title: "Hall of Fame Jawa Barat - Panggung Inohong",
+                address: "Bapusipda, Bandung",
+                history: "Museum ini memberikan penghargaan kepada tokoh-tokoh terkenal dari Jawa Barat yang telah berkontribusi besar dalam berbagai bidang",
+                collection: "Biografi, foto, dan artefak pribadi dari tokoh-tokoh tersebut",
+                unique: "Menyediakan pameran digital interaktif yang memudahkan pengunjung untuk mengenal lebih dekat tokoh-tokoh tersebut"
+            },
+            museum17: {
+                title: "Museum Pendidikan Nasional",
+                address: "Jl. Dr. Setiabudi No. 225",
+                history: "Didirikan oleh Universitas Pendidikan Indonesia untuk mendokumentasikan sejarah pendidikan di Indonesia",
+                collection: "Buku-buku, alat peraga, dan dokumen-dokumen pendidikan dari berbagai era",
+                unique: "Memiliki koleksi unik berupa buku-buku pelajaran kuno dan alat peraga pendidikan dari masa penjajahan"
+            },
+            museum18: {
+                title: "Gedung Indonesia Menggugat",
+                address: "Jl. Perintis Kemerdekaan No. 5",
+                history: "Gedung ini adalah tempat Bung Karno membacakan pledoi 'Indonesia Menggugat' pada tahun 1930, yang menjadi simbol perlawanan terhadap penjajahan Belanda",
+                collection: "Dokumen sejarah, foto-foto, dan artefak yang terkait dengan peristiwa tersebut",
+                unique: "Menampilkan rekaman asli dari pledoi Bung Karno dan pameran yang menggambarkan suasana pengadilan saat itu"
+            },
+            museum19: {
+                title: "Museum Perjuangan Rakyat Jawa Barat",
+                address: "Jl. Dipatiukur No 48",
+                history: "Museum ini didirikan untuk mengenang perjuangan rakyat Jawa Barat dalam merebut dan mempertahankan kemerdekaan Indonesia. Gedung ini dibangun pada tahun 1957 dan diresmikan pada tahun 1965",
+                collection: "Museum ini memiliki berbagai koleksi senjata tradisional dan modern yang digunakan selama masa perjuangan, foto-foto dokumenter, peta-peta pertempuran, serta dokumen-dokumen penting terkait perjuangan rakyat Jawa Barat",
+                unique: "Salah satu keunikan museum ini adalah adanya diorama-diorama yang menggambarkan perjuangan rakyat Jawa Barat secara visual"
+            },
+            museum20: {
+                title: "NuArt Sculpture Park",
+                address: "Setara Duta Raya No.L6, Ciwaruga",
+                history: "Taman ini dirancang sebagai ruang bagi seniman untuk mengekspresikan kreativitas mereka dan sebagai tempat untuk memamerkan karya seni patung Nyoman Nuarta yang dikenal dengan gaya realistis dan modern",
+                collection: "NuArt Sculpture Park memiliki koleksi patung-patung monumental karya Nyoman Nuarta, termasuk patung-patung besar berbahan perunggu dan logam lainnya",
+                unique: "Patung-patung ditempatkan di taman yang hijau dan asri, menciptakan suasana yang harmonis antara seni dan alam"
+            },
+        };
+
+        function showModal(museumId) {
+            const modal = document.getElementById("museumModal");
+            const details = museumDetails[museumId];
+            document.getElementById("museumTitle").innerText = details.title;
+            document.getElementById("museumAddress").innerText = `Alamat: ${details.address}`;
+            document.getElementById("museumHistory").innerText = `Sejarah: ${details.history}`;
+            document.getElementById("museumCollection").innerText = `Koleksi Utama: ${details.collection}`;
+            document.getElementById("museumUnique").innerText = `Hal Unik: ${details.unique}`;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("museumModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("museumModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

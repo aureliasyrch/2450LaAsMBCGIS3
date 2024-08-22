@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://cdn1.katadata.co.id/media/images/temp/2020/04/18/2020_04_18-20_12_17_b963f1f3b83e3ac6e3103c4c0e66ad0e.jpg');  
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo img {
+            height: 50px; /* ukuran logo */
+        }
+
+        .content {
+            background-color: rgba(0, 0, 0, 0.7); /* Hitam */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            color: #ffffff; /* Teks putih untuk kontras */
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #FFD700; /* Kuning */
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ffffff; /* Teks putih untuk kontras */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #003366; /* Biru Tua */
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: #003366; /* Biru Tua Gelap */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://img.bandung.go.id/images/prpage/2021/10/15/header/1639659211100-lambang-dan-bendera-desktop.png" alt="Logo Kota Bandung"> 
+    </div>
+    <div class="content">
+        <h1>Selamat Datang</h1>
+        <p>Temukan dan jelajahi museum-museum menarik yang ada di Bandung</p>
+        <nav>
+            <a href="/isihome">Gallery</a>
+            <a href="/maps">Maps</a>
+            <a href="/daftar">The Museum</a>
+            <a href="/about">About</a>
+        </nav>
+    </div>
+</body>
+</html>
