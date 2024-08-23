@@ -75,6 +75,11 @@
             opacity: 0.7
         });
 
+        var terrainLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS',
+            maxZoom: 17
+        });
+
         // Initialize the map
         var map = L.map('map', {
             center: [-6.971386, 107.632456],
@@ -85,7 +90,8 @@
         // Layer control
         var baseMaps = {
             "Street View": streetLayer,
-            "Satelit View": satelliteLayer
+            "Satelit View": satelliteLayer,
+            "Terrain View": terrainLayer
         };
 
         L.control.layers(baseMaps).addTo(map);
